@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Play, Pause, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Project images imports

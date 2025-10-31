@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import heroBg from "../assets/Bitmap (2) (2).png";
 
 export default function Hero() {
