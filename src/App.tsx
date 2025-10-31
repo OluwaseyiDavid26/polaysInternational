@@ -5,7 +5,6 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Services from "./components/Services";
 import ProjectsGallery from "./components/ProjectsGallery";
-import StatsSection from "./components/StatsSection";
 import ContactForm from "./components/ContactForm";
 import Sponsor from "./components/Sponsor";
 // import Gallery from './components/Gallery';
@@ -21,7 +20,7 @@ function App() {
       <Projects />
       <Services />
       <ProjectsGallery />
-      <StatsSection />
+      <ProjectsGallery />
       <ContactForm />
       <Sponsor />
       {/* <Gallery /> */}

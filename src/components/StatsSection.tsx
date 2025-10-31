@@ -7,9 +7,6 @@ interface StatItem {
   label: string;
   icon: React.ReactNode;
   color: string;
-  textColor: string;
-  hoverColor: string;
-  dividerColor: string;
 }
 
 const Counter: React.FC<{ end: number; duration?: number }> = ({
@@ -60,13 +57,8 @@ const Counter: React.FC<{ end: number; duration?: number }> = ({
   }, [isVisible, end, duration]);
 
   return (
-    <div
-      ref={counterRef}
-      className="text-7xl font-bold mb-4 group-hover:scale-110 transition-transform duration-300"
-    >
-      <span className="text-blue-900 group-hover:text-red-500 transition-colors duration-300">
-        {count}
-      </span>
+    <div ref={counterRef} className="text-7xl font-bold text-blue-900 mb-4">
+      {count}
     </div>
   );
 };
@@ -77,25 +69,15 @@ const StatCard: React.FC<{ stat: StatItem; index: number }> = ({
 }) => {
   return (
     <div
-      className="text-center transform transition-all duration-500 hover:scale-105 group"
+      className="text-center transform transition-all duration-500 hover:scale-105"
       style={{
         animation: `fadeInUp 0.6s ease-out ${index * 0.2}s both`,
       }}
     >
       <Counter end={stat.value} />
-
-      {/* Divider Line */}
-      <div className={`w-32 h-0.5 mx-auto mb-4 ${stat.dividerColor}`} />
-
       <div className="flex items-center justify-center gap-3">
-        <div
-          className={`${stat.color} group-hover:scale-110 transition-transform duration-300`}
-        >
-          {stat.icon}
-        </div>
-        <h5
-          className={`text-base font-semibold uppercase tracking-wide transition-colors duration-300 ${stat.textColor} ${stat.hoverColor}`}
-        >
+        <div className={`${stat.color}`}>{stat.icon}</div>
+        <h5 className="text-lg font-semibold text-blue-900 uppercase tracking-wide">
           {stat.label}
         </h5>
       </div>
@@ -110,33 +92,21 @@ const StatsSection: React.FC = () => {
       value: 72,
       label: "Completed Projects",
       icon: <Home className="w-6 h-6" />,
-      color: "text-blue-900",
-      textColor: "text-blue-900",
-      hoverColor: "group-hover:text-red-500",
-      dividerColor:
-        "bg-blue-900 group-hover:bg-red-500 transition-colors duration-300",
+      color: "text-orange-500",
     },
     {
       id: 2,
       value: 34,
       label: "Happy Customers",
       icon: <Users className="w-6 h-6" />,
-      color: "text-red-500",
-      textColor: "text-red-500",
-      hoverColor: "group-hover:text-blue-900",
-      dividerColor:
-        "bg-red-500 group-hover:bg-blue-900 transition-colors duration-300",
+      color: "text-orange-500",
     },
     {
       id: 3,
       value: 12,
       label: "Ongoing Projects",
       icon: <FileText className="w-6 h-6" />,
-      color: "text-blue-900",
-      textColor: "text-blue-900",
-      hoverColor: "group-hover:text-red-500",
-      dividerColor:
-        "bg-blue-900 group-hover:bg-red-500 transition-colors duration-300",
+      color: "text-orange-500",
     },
   ];
 

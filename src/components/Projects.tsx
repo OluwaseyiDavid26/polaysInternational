@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Play, Pause, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Project images imports
 import proj1 from "../assets/Bitmap (1) (3).png";
@@ -13,9 +14,14 @@ import wuseHeight2 from "../assets/wuse-height2.jpg";
 import sampleBitmap1 from "../assets/Bitmap (2) (1).png";
 import sampleBitmap2 from "../assets/Bitmap (2) (1).png";
 
+interface GalleryImage {
+  src: string;
+  caption: string;
+}
+
 export default function Projects() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentGallery, setCurrentGallery] = useState<any[]>([]);
+  const [currentGallery, setCurrentGallery] = useState<GalleryImage[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -64,11 +70,11 @@ export default function Projects() {
 
   // Autoplay effect
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isPlaying && lightboxOpen) {
+    let interval: ReturnType<typeof setInterval>;
+    {
       interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % currentGallery.length);
-      }, 3000); // Change image every 3 seconds
+      }, 3000);
     }
     return () => {
       if (interval) clearInterval(interval);
@@ -91,148 +97,131 @@ export default function Projects() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxOpen]);
+  }, [lightboxOpen, currentGallery.length]);
 
   return (
     <>
-      <section id="project" className="relative w-full py-20 bg-white">
-        {/* Watermark */}
-        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[200px] font-bold text-gray-100 opacity-20 pointer-events-none select-none">
-          PICL
-        </span>
-
+      <section id="project" className="relative w-full py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Ore Terminal */}
-            <div className="relative overflow-hidden cursor-pointer h-[450px]">
+            <div className="relative overflow-hidden group h-[500px] shadow-lg">
               <img
                 src={proj1}
                 alt="Ore Terminal"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 flex items-start justify-start p-8">
-                <div className="text-left">
-                  <h3 className="text-3xl font-serif text-blue-900 mb-4">
-                    Ore Terminal
-                  </h3>
-                  <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl">
-                    01
-                  </span>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute top-8 left-8">
+                <h3 className="text-4xl font-serif text-blue-900 mb-4 drop-shadow-lg">
+                  Ore Terminal
+                </h3>
+                <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl inline-block">
+                  01
+                </span>
               </div>
-              <div className="absolute top-8 right-8">
-                <button
-                  onClick={() => openGallery("ore")}
-                  className="text-red-500 font-bold text-lg uppercase hover:text-red-600 transition-colors"
-                >
-                  MORE
-                </button>
-              </div>
+              <button
+                onClick={() => openGallery("ore")}
+                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-white hover:bg-red-500 transition-all duration-300 px-6 py-2 border-2 border-red-500"
+              >
+                MORE
+              </button>
             </div>
 
             {/* Wuse Heights */}
-            <div className="relative overflow-hidden cursor-pointer h-[450px]">
+            <div className="relative overflow-hidden group h-[500px] shadow-lg">
               <img
                 src={wuseHeight1}
                 alt="Wuse Heights"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 flex items-start justify-center p-8">
-                <div className="text-center">
-                  <h3 className="text-3xl font-serif text-blue-900 mb-4">
-                    Wuse Heights
-                  </h3>
-                  <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl inline-block">
-                    02
-                  </span>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center">
+                <h3 className="text-4xl font-serif text-blue-900 mb-4 drop-shadow-lg">
+                  Wuse Heights
+                </h3>
+                <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl inline-block">
+                  02
+                </span>
               </div>
-              <div className="absolute top-8 right-8">
-                <button
-                  onClick={() => openGallery("wuse")}
-                  className="text-red-500 font-bold text-lg uppercase hover:text-red-600 transition-colors"
-                >
-                  MORE
-                </button>
-              </div>
+              <button
+                onClick={() => openGallery("wuse")}
+                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-white hover:bg-red-500 transition-all duration-300 px-6 py-2 border-2 border-red-500"
+              >
+                MORE
+              </button>
             </div>
 
             {/* Sample Projects */}
-            <div className="relative overflow-hidden cursor-pointer h-[450px]">
+            <div className="relative overflow-hidden group h-[500px] shadow-lg">
               <img
                 src={proj3}
                 alt="Sample Projects"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 flex items-end justify-end p-8">
-                <div className="text-right">
-                  <h3 className="text-3xl font-serif text-blue-900 mb-4">
-                    Sample Projects
-                  </h3>
-                  <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl inline-block">
-                    03
-                  </span>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-8 right-8 text-right">
+                <h3 className="text-4xl font-serif text-blue-900 mb-4 drop-shadow-lg">
+                  Sample Projects
+                </h3>
+                <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl inline-block">
+                  03
+                </span>
               </div>
-              <div className="absolute top-8 right-8">
-                <button
-                  onClick={() => openGallery("sample")}
-                  className="text-red-500 font-bold text-lg uppercase hover:text-red-600 transition-colors"
-                >
-                  MORE
-                </button>
-              </div>
+              <button
+                onClick={() => openGallery("sample")}
+                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-white hover:bg-red-500 transition-all duration-300 px-6 py-2 border-2 border-red-500"
+              >
+                MORE
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Custom Lightbox Modal */}
+      {/* Lightbox Modal */}
       {lightboxOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
         >
-          {/* Close Button */}
-          <button
-            onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white text-4xl hover:text-red-500 transition-colors z-50"
-          >
-            ×
-          </button>
+          {/* Top Controls Bar */}
+          <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black to-transparent p-4 flex justify-between items-center z-50">
+            <div className="text-white text-lg font-medium">
+              {currentIndex + 1} / {currentGallery.length}
+            </div>
 
-          {/* Play/Pause Button */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleAutoplay();
-            }}
-            className="absolute top-4 left-4 text-white hover:text-red-500 transition-colors z-50 bg-black/50 px-4 py-2 rounded-lg flex items-center gap-2"
-          >
-            {isPlaying ? (
-              <>
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                </svg>
-                Pause
-              </>
-            ) : (
-              <>
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                Play
-              </>
-            )}
-          </button>
+            <div className="flex gap-4">
+              {/* Play/Pause Button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleAutoplay();
+                }}
+                className="text-white hover:text-red-500 transition-colors flex items-center gap-2 bg-white/10 px-4 py-2 rounded"
+              >
+                {isPlaying ? (
+                  <>
+                    <Pause className="w-5 h-5" />
+                    <span className="hidden sm:inline">Pause</span>
+                  </>
+                ) : (
+                  <>
+                    <Play className="w-5 h-5" />
+                    <span className="hidden sm:inline">Play</span>
+                  </>
+                )}
+              </button>
+
+              {/* Close Button */}
+              <button
+                onClick={closeLightbox}
+                className="text-white hover:text-red-500 transition-colors"
+              >
+                <X className="w-8 h-8" />
+              </button>
+            </div>
+          </div>
 
           {/* Previous Button */}
           <button
@@ -240,9 +229,9 @@ export default function Projects() {
               e.stopPropagation();
               prevImage();
             }}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-red-500 transition-colors z-50"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-red-500 transition-colors z-50 bg-black/50 p-3 rounded-full"
           >
-            ‹
+            <ChevronLeft className="w-8 h-8" />
           </button>
 
           {/* Next Button */}
@@ -251,43 +240,41 @@ export default function Projects() {
               e.stopPropagation();
               nextImage();
             }}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-red-500 transition-colors z-50"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-red-500 transition-colors z-50 bg-black/50 p-3 rounded-full"
           >
-            ›
+            <ChevronRight className="w-8 h-8" />
           </button>
 
-          {/* Image */}
+          {/* Main Image */}
           <div
-            className="max-w-6xl max-h-[90vh] px-20"
+            className="max-w-5xl max-h-[85vh] px-20 flex flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
             <img
               src={currentGallery[currentIndex]?.src}
               alt={currentGallery[currentIndex]?.caption}
-              className="max-w-full max-h-[80vh] object-contain"
+              className="max-w-full max-h-[75vh] object-contain shadow-2xl"
             />
             {/* Caption */}
-            <p className="text-white text-center mt-4 text-lg">
+            <p className="text-white text-center mt-6 text-xl font-medium">
               {currentGallery[currentIndex]?.caption}
-            </p>
-            {/* Counter */}
-            <p className="text-white/70 text-center mt-2">
-              {currentIndex + 1} / {currentGallery.length}
             </p>
           </div>
 
           {/* Thumbnails */}
           <div
-            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2"
+            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 bg-black/50 p-3 rounded-lg backdrop-blur-sm"
             onClick={(e) => e.stopPropagation()}
           >
             {currentGallery.map((img, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`w-16 h-16 overflow-hidden rounded border-2 ${
-                  idx === currentIndex ? "border-red-500" : "border-white/50"
-                } hover:border-red-500 transition-colors`}
+                className={`w-20 h-20 overflow-hidden rounded transition-all duration-300 ${
+                  idx === currentIndex
+                    ? "ring-2 ring-red-500 scale-110"
+                    : "ring-1 ring-white/30 hover:ring-red-500"
+                }`}
               >
                 <img
                   src={img.src}
