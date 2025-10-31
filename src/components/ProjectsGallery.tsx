@@ -1,6 +1,12 @@
 import React from "react";
 import { Square, ArrowUp, Bed, Bath } from "lucide-react";
 
+// Import your local images
+import project1Img from "../assets/Bitmap (1) (1).png";
+import project2Img from "../assets/Bitmap (1) (2).png";
+import project3Img from "../assets/Bitmap (1).png";
+import project4Img from "../assets/Bitmap (2) (1).png";
+
 interface ProjectInfo {
   area?: string;
   height?: string;
@@ -25,7 +31,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
 
-      {/* Hidden Overlay (shows on hover) */}
+      {/* Hidden Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
         <div>
           <h3 className="text-2xl font-semibold mb-4 tracking-wide text-gray-100">
@@ -69,8 +75,7 @@ const ProjectGallery: React.FC = () => {
     {
       id: 1,
       title: "Project Management",
-      image:
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+      image: project1Img, // local image
       info: {
         area: "96 m²",
         height: "3.3 m",
@@ -81,8 +86,7 @@ const ProjectGallery: React.FC = () => {
     {
       id: 2,
       title: "Design Drawing",
-      image:
-        "https://images.unsplash.com/photo-1509644851169-2acc08aa25b5?w=800&q=80",
+      image: project2Img,
       info: {
         area: "100 m²",
         height: "5.3 m",
@@ -93,8 +97,7 @@ const ProjectGallery: React.FC = () => {
     {
       id: 3,
       title: "Renovation & Remodeling",
-      image:
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+      image: project3Img,
       info: {
         area: "120 m²",
         height: "7.3 m",
@@ -105,12 +108,8 @@ const ProjectGallery: React.FC = () => {
     {
       id: 4,
       title: "3D Drawing",
-      image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      info: {
-        area: "150 m²",
-        height: "7.4 m",
-      },
+      image: project4Img,
+      info: { area: "150 m²", height: "7.4 m" },
     },
   ];
 
