@@ -13,7 +13,7 @@ export default function Hero() {
       }}
     >
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+      <div className="absolute inset-0 bg- z-10"></div>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0  to-transparent z-10"></div>
@@ -22,11 +22,6 @@ export default function Hero() {
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-white w-full">
         <div className="max-w-2xl">
           {/* Small Title */}
-          <div className="mb-6 animate-fadeInUp">
-            <span className="inline-block bg-red-500 text-white px-5 py-2 rounded-lg text-sm font-semibold">
-              Polays International Concept Limited
-            </span>
-          </div>
 
           {/* Main Heading */}
           <h1

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Play, Pause, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Project images imports
@@ -71,7 +71,7 @@ export default function Projects() {
   // Autoplay effect
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
-    {
+    if (isPlaying && lightboxOpen) {
       interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % currentGallery.length);
       }, 3000);
@@ -101,76 +101,83 @@ export default function Projects() {
 
   return (
     <>
-      <section id="project" className="relative w-full py-20 bg-gray-50">
+      {/* PROJECTS SECTION */}
+      <section id="project" className="relative w-full py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Section Heading */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-red-600 uppercase tracking-wide">
+              Our Projects
+            </h2>
+            <div className="w-24 h-1 bg-red-600 mx-auto mt-3 rounded"></div>
+          </div>
+
+          {/* Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Ore Terminal */}
-            <div className="relative overflow-hidden group h-[500px] shadow-lg">
+            <div className="relative overflow-hidden group h-[500px] shadow-lg rounded-lg">
               <img
                 src={proj1}
                 alt="Ore Terminal"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute top-8 left-8">
-                <h3 className="text-4xl font-serif text-blue-900 mb-4 drop-shadow-lg">
+                <h3 className="text-3xl font-serif text-blue-900 mb-4 drop-shadow-lg">
                   Ore Terminal
                 </h3>
-                <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl inline-block">
+                <span className="bg-red-500 text-white px-6 py-2 font-bold text-xl inline-block">
                   01
                 </span>
               </div>
               <button
                 onClick={() => openGallery("ore")}
-                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-white hover:bg-red-500 transition-all duration-300 px-6 py-2 border-2 border-red-500"
+                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-red-600 transition-colors"
               >
                 MORE
               </button>
             </div>
 
             {/* Wuse Heights */}
-            <div className="relative overflow-hidden group h-[500px] shadow-lg">
+            <div className="relative overflow-hidden group h-[500px] shadow-lg rounded-lg">
               <img
                 src={wuseHeight1}
                 alt="Wuse Heights"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center">
-                <h3 className="text-4xl font-serif text-blue-900 mb-4 drop-shadow-lg">
+              <div className="absolute top-8 left-8">
+                <h3 className="text-3xl font-serif text-blue-900 mb-4 drop-shadow-lg">
                   Wuse Heights
                 </h3>
-                <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl inline-block">
+                <span className="bg-red-500 text-white px-6 py-2 font-bold text-xl inline-block">
                   02
                 </span>
               </div>
               <button
                 onClick={() => openGallery("wuse")}
-                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-white hover:bg-red-500 transition-all duration-300 px-6 py-2 border-2 border-red-500"
+                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-red-600 transition-colors"
               >
                 MORE
               </button>
             </div>
 
             {/* Sample Projects */}
-            <div className="relative overflow-hidden group h-[500px] shadow-lg">
+            <div className="relative overflow-hidden group h-[500px] shadow-lg rounded-lg">
               <img
                 src={proj3}
                 alt="Sample Projects"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-8 right-8 text-right">
-                <h3 className="text-4xl font-serif text-blue-900 mb-4 drop-shadow-lg">
+                <h3 className="text-3xl font-serif text-blue-900 mb-4 drop-shadow-lg">
                   Sample Projects
                 </h3>
-                <span className="bg-red-500 text-white px-6 py-3 font-bold text-2xl inline-block">
+                <span className="bg-red-500 text-white px-6 py-2 font-bold text-xl inline-block">
                   03
                 </span>
               </div>
               <button
                 onClick={() => openGallery("sample")}
-                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-white hover:bg-red-500 transition-all duration-300 px-6 py-2 border-2 border-red-500"
+                className="absolute top-8 right-8 text-red-500 font-bold text-lg uppercase hover:text-red-600 transition-colors"
               >
                 MORE
               </button>
@@ -179,13 +186,13 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Lightbox Modal */}
+      {/* LIGHTBOX MODAL */}
       {lightboxOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
         >
-          {/* Top Controls Bar */}
+          {/* Top Controls */}
           <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black to-transparent p-4 flex justify-between items-center z-50">
             <div className="text-white text-lg font-medium">
               {currentIndex + 1} / {currentGallery.length}
@@ -223,7 +230,7 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* Previous Button */}
+          {/* Prev Button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -255,7 +262,6 @@ export default function Projects() {
               alt={currentGallery[currentIndex]?.caption}
               className="max-w-full max-h-[75vh] object-contain shadow-2xl"
             />
-            {/* Caption */}
             <p className="text-white text-center mt-6 text-xl font-medium">
               {currentGallery[currentIndex]?.caption}
             </p>

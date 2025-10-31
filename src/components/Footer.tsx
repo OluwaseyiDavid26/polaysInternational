@@ -10,9 +10,13 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Grid3x3,
-  Play,
 } from "lucide-react";
+
+// Import your project images
+import gall1 from "../assets/gall1.jpg";
+import gall2 from "../assets/gall2.jpg";
+import gall3 from "../assets/wuse-height1.jpg";
+import gall4 from "../assets/gall4.jpg";
 
 interface GalleryImage {
   id: number;
@@ -23,7 +27,6 @@ interface GalleryImage {
 interface PortfolioLink {
   id: number;
   title: string;
-  url: string;
 }
 
 const Footer: React.FC = () => {
@@ -33,60 +36,24 @@ const Footer: React.FC = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const portfolioLinks: PortfolioLink[] = [
-    { id: 1, title: "Modern Natural Materials", url: "#" },
-    { id: 2, title: "Minimal Smart House", url: "#" },
-    { id: 3, title: "Beautiful Wooden Stairs", url: "#" },
-    { id: 4, title: "Escalators Construction", url: "#" },
-    { id: 5, title: "Abstract Architecture", url: "#" },
-    { id: 6, title: "Design Your Space", url: "#" },
+    { id: 1, title: "Modern Natural Materials" },
+    { id: 2, title: "Minimal Smart House" },
+    { id: 3, title: "Beautiful Wooden Stairs" },
+    { id: 4, title: "Escalators Construction" },
+    { id: 5, title: "Abstract Architecture" },
+    { id: 6, title: "Design Your Space" },
   ];
 
   const galleryImages: GalleryImage[] = [
-    {
-      id: 1,
-      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop",
-      alt: "Project 1",
-    },
-    {
-      id: 2,
-      src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop",
-      alt: "Project 2",
-    },
-    {
-      id: 3,
-      src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop",
-      alt: "Project 3",
-    },
-    {
-      id: 4,
-      src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&h=800&fit=crop",
-      alt: "Project 4",
-    },
-    {
-      id: 5,
-      src: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1200&h=800&fit=crop",
-      alt: "Project 5",
-    },
-    {
-      id: 6,
-      src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=800&fit=crop",
-      alt: "Project 6",
-    },
-    {
-      id: 7,
-      src: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=1200&h=800&fit=crop",
-      alt: "Project 7",
-    },
-    {
-      id: 8,
-      src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop",
-      alt: "Project 8",
-    },
-    {
-      id: 9,
-      src: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1200&h=800&fit=crop",
-      alt: "Project 9",
-    },
+    { id: 1, src: gall1, alt: "Project 1" },
+    { id: 2, src: gall2, alt: "Project 2" },
+    { id: 3, src: gall3, alt: "Project 3" },
+    { id: 4, src: gall4, alt: "Project 4" },
+    { id: 5, src: gall1, alt: "Project 5" },
+    { id: 6, src: gall2, alt: "Project 6" },
+    { id: 7, src: gall3, alt: "Project 7" },
+    { id: 8, src: gall4, alt: "Project 8" },
+    { id: 9, src: gall1, alt: "Project 9" },
   ];
 
   const scrollToTop = () => {
@@ -129,22 +96,24 @@ const Footer: React.FC = () => {
         {/* Scroll to Top Button */}
         <button
           onClick={scrollToTop}
-          className="absolute -top-8 right-0 bg-red-500 hover:bg-red-600 text-white w-16 h-16 shadow-lg transition-all duration-300 transform hover:scale-105 z-10 flex items-center justify-center"
+          className="absolute -top-8 right-8 bg-red-500 hover:bg-red-600 text-white w-16 h-16 shadow-lg transition-all duration-300 transform hover:scale-105 z-10 flex items-center justify-center"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-6 h-6" />
         </button>
 
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
             {/* Company Info */}
             <div>
-              <div className="mb-4">
-                <h2 className="text-2xl font-bold text-white mb-2">POLAYS</h2>
-                <p className="text-xs text-gray-400 tracking-wider">
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-white mb-1 leading-tight">
+                  POLAYS
+                </h2>
+                <p className="text-xs text-gray-400 tracking-wider leading-tight">
                   INTERNATIONAL
                 </p>
-                <p className="text-xs text-gray-400 tracking-wider">
+                <p className="text-xs text-gray-400 tracking-wider leading-tight">
                   CONCEPT LIMITED
                 </p>
               </div>
@@ -188,13 +157,13 @@ const Footer: React.FC = () => {
                 Contacts
               </h3>
               <ul className="space-y-4">
-                <li className="flex gap-3">
-                  <MapPin className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
+                <li className="flex gap-3 items-start">
+                  <MapPin className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                   <span className="text-sm leading-relaxed">
                     17, A7 street, Citec Estate, Mbora District, Abuja
                   </span>
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-3 items-center">
                   <Phone className="w-5 h-5 text-red-500 flex-shrink-0" />
                   <a
                     href="tel:+2348099732070"
@@ -203,7 +172,7 @@ const Footer: React.FC = () => {
                     +(234) 80 9973 2070
                   </a>
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-3 items-center">
                   <Mail className="w-5 h-5 text-red-500 flex-shrink-0" />
                   <a
                     href="mailto:admin@polays.org"
@@ -220,12 +189,12 @@ const Footer: React.FC = () => {
               <h3 className="text-white text-lg font-bold mb-6 uppercase tracking-wide">
                 Our Portfolio
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {portfolioLinks.map((link) => (
                   <li key={link.id}>
                     <a
-                      href={link.url}
-                      className="text-sm text-gray-400 hover:text-red-500 transition-all duration-200 hover:translate-x-1 inline-block"
+                      href="#"
+                      className="text-sm text-gray-400 hover:text-red-500 transition-all duration-200 inline-block"
                     >
                       {link.title}
                     </a>
@@ -272,27 +241,13 @@ const Footer: React.FC = () => {
               <div className="text-white text-sm font-medium">
                 {selectedImageIndex + 1} / {galleryImages.length}
               </div>
-              <div className="flex gap-4">
-                <button
-                  className="text-white hover:text-gray-300 transition-colors"
-                  aria-label="Grid view"
-                >
-                  <Grid3x3 className="w-6 h-6" />
-                </button>
-                <button
-                  className="text-white hover:text-gray-300 transition-colors"
-                  aria-label="Slideshow"
-                >
-                  <Play className="w-6 h-6" />
-                </button>
-                <button
-                  onClick={closeLightbox}
-                  className="text-white hover:text-gray-300 transition-colors"
-                  aria-label="Close"
-                >
-                  <X className="w-8 h-8" />
-                </button>
-              </div>
+              <button
+                onClick={closeLightbox}
+                className="text-white hover:text-gray-300 transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-8 h-8" />
+              </button>
             </div>
 
             {/* Main Image */}

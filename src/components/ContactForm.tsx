@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { User, Mail, Settings } from "lucide-react";
 
-// Import background image
-import contactBg from "../assets/aaa.jpg";
-
 interface FormData {
   name: string;
   email: string;
@@ -88,16 +85,16 @@ const ContactFormSection: React.FC = () => {
   return (
     <section
       id="contact-us"
-      className="relative w-full py-20 overflow-hidden min-h-screen"
+      className="relative w-full py-20 overflow-hidden min-h-screen flex items-center justify-center"
+      style={{
+        backgroundImage:
+          "url(https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${contactBg})`,
-          filter: "brightness(0.4)",
-        }}
-      />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60" />
 
       {/* Decorative Pattern Overlay - Top Left */}
       <div className="absolute top-0 left-0 w-64 h-64 pointer-events-none opacity-20">
@@ -127,8 +124,8 @@ const ContactFormSection: React.FC = () => {
         <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-red-500" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 flex items-center justify-end min-h-[600px]">
-        <div className="w-full max-w-lg bg-white rounded-sm shadow-2xl p-10 relative">
+      <div className="relative z-10 flex items-center justify-center w-full h-full">
+        <div className="w-full max-w-lg bg-white rounded-sm shadow-2xl p-10 relative mx-4">
           {/* Decorative Red Corner - Top Right */}
           <div className="absolute -top-2 -right-2 w-12 h-12 bg-red-500" />
 

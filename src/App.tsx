@@ -20,7 +20,7 @@ function App() {
       <Projects />
       <Services />
       <ProjectsGallery />
-      <ProjectsGallery />
+
       <ContactForm />
       <Sponsor />
       {/* <Gallery /> */}
