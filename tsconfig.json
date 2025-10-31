@@ -1,10 +1,7 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": [],
-    "jsx": "react-jsx"
-  },
-  "files": ["src/main.tsx"],
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
