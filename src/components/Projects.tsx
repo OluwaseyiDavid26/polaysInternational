@@ -9,7 +9,7 @@ import proj3 from "../assets/Bitmap (2) (3).png";
 // Gallery images imports
 import oreBitmap1 from "../assets/Bitmap.png";
 import oreBitmap2 from "../assets/Bitmap (1) (2).png";
-import oreBitmap3 from "../assets/Bitmap (2) (2).png";
+import oreBitmap3 from "../assets/hero-img.png";
 import wuseHeight2 from "../assets/wuse-height2.jpg";
 import sampleBitmap1 from "../assets/Bitmap (2) (1).png";
 import sampleBitmap2 from "../assets/Bitmap (2) (1).png";

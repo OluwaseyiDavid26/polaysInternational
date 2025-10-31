@@ -1,5 +1,5 @@
 // import React from "react";
-import heroBg from "../assets/Bitmap (2) (2).png";
+import heroBg from "../assets/hero-img.png";
 
 export default function Hero() {
   return (
@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50 z-10"></div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-900/60 to-transparent z-10"></div>
+      <div className="absolute inset-0  to-transparent z-10"></div>
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-white w-full">
@@ -66,13 +66,6 @@ export default function Hero() {
               <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-white transition-all duration-300 group-hover:w-full group-hover:h-full"></span>
             </a>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-white rounded-full animate-scrollDown"></div>
         </div>
       </div>
 
