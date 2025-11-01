@@ -2,10 +2,10 @@ import React from "react";
 import { Square, ArrowUp, Bed, Bath } from "lucide-react";
 
 // Import your local images
-import project1Img from "../assets/Bitmap (1) (1).png";
-import project2Img from "../assets/Bitmap (1) (2).png";
-import project3Img from "../assets/Bitmap (1).png";
-import project4Img from "../assets/Bitmap (2) (1).png";
+import project1Img from "../assets/gall1.jpg";
+import project2Img from "../assets/gall2.jpg";
+import project3Img from "../assets/wuse-height1.jpg";
+import project4Img from "../assets/gall4.jpg";
 
 interface ProjectInfo {
   area?: string;
@@ -34,7 +34,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       {/* Hidden Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
         <div>
-          <h3 className="text-2xl font-semibold mb-4 tracking-wide text-gray-100">
+          <h3 className="text-2xl font-semibold mb-4 tracking-wide text-blue-800">
             {project.title}
           </h3>
 

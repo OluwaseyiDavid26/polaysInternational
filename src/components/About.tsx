@@ -88,27 +88,6 @@ export default function About() {
             </div>
 
             {/* CTA Link */}
-            <div className="pt-4">
-              <a
-                href="#project"
-                className="inline-flex items-center text-red-500 hover:text-red-600 font-semibold transition-colors duration-300 group"
-              >
-                Our Projects
-                <svg
-                  className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
-            </div>
           </div>
         </div>
       </div>

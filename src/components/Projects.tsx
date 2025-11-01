@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 import { Play, Pause, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Project images imports
-import proj1 from "../assets/Bitmap (1) (3).png";
+import proj1 from "../assets/ore-terminal-1.jpg";
 import wuseHeight1 from "../assets/wuse-height1.jpg";
 import proj3 from "../assets/Bitmap (2) (3).png";
 
 // Gallery images imports
 import oreBitmap1 from "../assets/Bitmap.png";
 import oreBitmap2 from "../assets/Bitmap (1) (2).png";
-import oreBitmap3 from "../assets/hero-img.png";
+// import oreBitmap3 from "../assets/hero-img.png";
 import wuseHeight2 from "../assets/wuse-height2.jpg";
 import sampleBitmap1 from "../assets/Bitmap (2) (1).png";
-import sampleBitmap2 from "../assets/Bitmap (2) (1).png";
+import sampleBitmap2 from "../assets/hero-img.png";
 
 interface GalleryImage {
   src: string;
@@ -30,7 +30,7 @@ export default function Projects() {
     ore: [
       { src: oreBitmap1, caption: "Ore Terminal 1" },
       { src: oreBitmap2, caption: "Ore Terminal 2" },
-      { src: oreBitmap3, caption: "Ore Terminal 3" },
+      // { src: oreBitmap3, caption: "Ore Terminal 3" },
     ],
     wuse: [
       { src: wuseHeight1, caption: "Wuse Heights 1" },
@@ -106,10 +106,10 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-red-600 uppercase tracking-wide">
+            <h2 className="text-red-500 text-sm font-semibold uppercase tracking-wider">
               Our Projects
             </h2>
-            <div className="w-24 h-1 bg-red-600 mx-auto mt-3 rounded"></div>
+            {/* <div className="w-24 h-1 bg-red-600 mx-auto mt-3 rounded"></div> */}
           </div>
 
           {/* Project Grid */}

@@ -6,17 +6,17 @@ import {
   Facebook,
   Instagram,
   Twitter,
-  ArrowUp,
   X,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 
-// Import your project images
+// Import logo and project images
+import logoImg from "../assets/polays - footerLogo.png"; // or whatever your logo filename is
 import gall1 from "../assets/gall1.jpg";
-import gall2 from "../assets/gall2.jpg";
+import gall2 from "../assets/Bitmap (2) (1).png";
 import gall3 from "../assets/wuse-height1.jpg";
-import gall4 from "../assets/gall4.jpg";
+import gall4 from "../assets/Bitmap (3) (1).png";
 
 interface GalleryImage {
   id: number;
@@ -56,10 +56,6 @@ const Footer: React.FC = () => {
     { id: 9, src: gall1, alt: "Project 9" },
   ];
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const openLightbox = (index: number) => {
     setSelectedImageIndex(index);
     setIsLightboxOpen(true);
@@ -93,29 +89,16 @@ const Footer: React.FC = () => {
   return (
     <>
       <footer className="bg-gray-900 text-gray-300 pt-16 pb-8 relative">
-        {/* Scroll to Top Button */}
-        <button
-          onClick={scrollToTop}
-          className="absolute -top-8 right-8 bg-red-500 hover:bg-red-600 text-white w-16 h-16 shadow-lg transition-all duration-300 transform hover:scale-105 z-10 flex items-center justify-center"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="w-6 h-6" />
-        </button>
-
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
             {/* Company Info */}
             <div>
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-white mb-1 leading-tight">
-                  POLAYS
-                </h2>
-                <p className="text-xs text-gray-400 tracking-wider leading-tight">
-                  INTERNATIONAL
-                </p>
-                <p className="text-xs text-gray-400 tracking-wider leading-tight">
-                  CONCEPT LIMITED
-                </p>
+                <img
+                  src={logoImg}
+                  alt="Polays International Concept Limited"
+                  className="h-16 w-auto object-contain"
+                />
               </div>
               <p className="text-sm mb-6 leading-relaxed text-gray-400">
                 Polays International Concept Limited, Make your dreams come True

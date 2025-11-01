@@ -10,6 +10,7 @@ import Sponsor from "./components/Sponsor";
 // import Gallery from './components/Gallery';
 // import Contact from './components/Contact';
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       {/* <Gallery /> */}
       {/* <Contact /> */}
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

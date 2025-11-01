@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { User, Mail, Settings } from "lucide-react";
 
+// Import your background image
+import contactBg from "../assets/gall4.jpg";
+
 interface FormData {
   name: string;
   email: string;
@@ -87,8 +90,7 @@ const ContactFormSection: React.FC = () => {
       id="contact-us"
       className="relative w-full py-20 overflow-hidden min-h-screen flex items-center justify-center"
       style={{
-        backgroundImage:
-          "url(https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80)",
+        backgroundImage: `url(${contactBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
