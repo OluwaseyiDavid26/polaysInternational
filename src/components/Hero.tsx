@@ -1,5 +1,4 @@
-// import React from "react";
-import heroBg from "../assets/hero-img.png";
+import heroBg from "../assets/gall4.jpg";
 
 export default function Hero() {
   return (
@@ -12,24 +11,20 @@ export default function Hero() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg- z-10"></div>
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0  to-transparent z-10"></div>
+      {/* Subtle Overlay to brighten the image slightly and improve text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/20 z-10"></div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-white w-full">
-        <div className="max-w-2xl">
-          {/* Small Title */}
-
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white w-full">
+        <div className="max-w-2xl mt-[-40px]">
           {/* Main Heading */}
           <h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight animate-fadeInUp"
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-3 leading-tight animate-fadeInUp"
             style={{
               animationDelay: "0.2s",
-              color: "#0039E6",
-              textShadow: "2px 2px 4px rgba(0,0,0,0.2)",
+              color: "#ffffff",
+              textShadow:
+                "3px 3px 10px rgba(0,0,0,0.9), -1px -1px 5px rgba(0,0,0,0.7), 0 0 25px rgba(0,0,0,0.8)",
             }}
           >
             Perfect Design
@@ -39,10 +34,12 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p
-            className="text-lg sm:text-xl font-bold mb-12 leading-relaxed animate-fadeInUp max-w-lg"
+            className="text-lg sm:text-xl font-semibold mb-4 leading-relaxed animate-fadeInUp max-w-lg"
             style={{
               animationDelay: "0.4s",
-              color: "#0039E6",
+              color: "#f0f0f0",
+              textShadow:
+                "2px 2px 8px rgba(0,0,0,0.9), -1px -1px 4px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.8)",
             }}
           >
             Transform your vision into reality with innovative architectural
@@ -54,6 +51,9 @@ export default function Hero() {
             <a
               href="#about"
               className="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold px-10 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 hover:shadow-2xl relative overflow-hidden group"
+              style={{
+                boxShadow: "0 4px 20px rgba(0,0,0,0.6)",
+              }}
             >
               <span className="relative z-10">Learn More</span>
               {/* Hover effect borders */}

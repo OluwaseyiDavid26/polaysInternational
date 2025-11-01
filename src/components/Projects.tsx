@@ -4,7 +4,7 @@ import { Play, Pause, X, ChevronLeft, ChevronRight } from "lucide-react";
 // Project images imports
 import proj1 from "../assets/ore-terminal-1.jpg";
 import wuseHeight1 from "../assets/wuse-height1.jpg";
-import proj3 from "../assets/Bitmap (2) (3).png";
+import proj3 from "../assets/hero-2.png";
 
 // Gallery images imports
 import oreBitmap1 from "../assets/Bitmap.png";
